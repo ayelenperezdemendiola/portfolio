@@ -49,15 +49,25 @@ a {
 .main__nav {
     height: 100%;
     &__list {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__container{
         height: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
+        width: 100wv;
+        border: solid red;
+        overflow: hidden;
         .nav__list__item {
             position: relative;
             padding: 0 3.75em;
+            width: 33%;
+            text-align: center;
         }
-        .nav__list__item::before {
+        .nav__list__item:not(.nav__list__item:first-child)::before {
             content: '';
             position: absolute;
             background-color: #f2efe8;
