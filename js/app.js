@@ -8,6 +8,8 @@ const navItemLink = document.querySelectorAll('.nav__list__item--link');
 const mainNavContainer = document.querySelector('.main__nav__container');
 const menuSection = document.querySelectorAll('.main__section');
 const links = document.querySelectorAll('a');
+const navTrigger = document.querySelector ('.nav__trigger');
+const nav = document.querySelector('.header__nav');
 
 
 window.addEventListener('mousemove', mouseFollow);
@@ -16,6 +18,11 @@ function mouseFollow(){
 	pointer.style.left = event.clientX - 20 + "px";
 	pointer.style.top = event.clientY - 20 + "px";
 }
+
+navTrigger.addEventListener('click', () => {
+    nav.classList.toggle('open');
+    navTrigger.classList.toggle('open');
+})
 
 links.forEach((v, i) => {
     links[i].addEventListener('mouseover', ()=>{
