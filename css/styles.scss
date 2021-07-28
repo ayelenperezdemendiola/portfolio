@@ -69,7 +69,7 @@ a {
         transform: scale(1.4);
         transition: border .5s ease-in-out,
                     transform .5s ease-in-out,
-                    background-color .5s ease-in;
+                    background-color .3s ease-in;
     }
 }
 
@@ -94,6 +94,23 @@ a {
     &__subtitle {
         color: #8f8c89;
         font-weight: 300;
+    }
+}
+
+.body--work,
+.body--about {
+    .header__wrapper {
+        width: 100%;
+        max-width: 64em;
+        padding: 0 5em;
+    }
+    .nav__list {
+        display: flex;
+        justify-content: space-between;
+    }
+    .nav__list__item--link {
+        color: #f2efe8;
+        text-transform: uppercase;
     }
 }
 
@@ -152,6 +169,17 @@ a {
     padding: 1em 5em;
     max-width: 64em;
     margin: 0 auto;
+}
+
+.body--about .main__section {
+    .section__title {
+        animation: uploadCard 1s ease backwards;
+        animation-delay: .1s;
+    }
+    .section__paragraph {
+        animation: uploadCard 1s ease backwards;
+        animation-delay: .4s;
+    }
 }
 
 .section__title + .section__paragraph {
@@ -230,11 +258,11 @@ a {
 @keyframes uploadCard {
     from {
         opacity: 0;
-        transform: translateY(40%);
+        transform: translateY(40%) translateZ(0);
     }
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateY(0) translateZ(0);
     } 
 }
 
