@@ -118,6 +118,10 @@ a {
   font-weight: 300;
 }
 
+.body--work .header,
+.body--about .header {
+  height: 10vh;
+}
 .body--work .header__wrapper,
 .body--about .header__wrapper {
   width: 100%;
@@ -141,16 +145,16 @@ a {
 .body--about .header__wrapper .nav__trigger.open {
   background-image: url("/assets/menu--icon-close.svg");
 }
-.body--work .header__wrapper .nav__trigger .nav__list__item--link,
-.body--about .header__wrapper .nav__trigger .nav__list__item--link {
-  font-size: 3em;
-}
 @media screen and (max-width: 750px) {
   .body--work .header__wrapper,
 .body--about .header__wrapper {
     padding: 0 1em;
     position: relative;
     height: 100%;
+  }
+  .body--work .header__wrapper .nav__list__item--link,
+.body--about .header__wrapper .nav__list__item--link {
+    font-size: 3em;
   }
 }
 @media screen and (max-width: 750px) {
