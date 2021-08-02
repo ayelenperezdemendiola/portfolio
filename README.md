@@ -1,6 +1,4 @@
-# portfolio
-Ancho de la ventana
-Mousemove en el body// o en el nav container
-Usar clientX (distancia del ratón horizontal)
-
-https://www.twitch.tv/videos/1084586204
+Hi!
+My name is Ayelen and I am a web developer. 
+If you want to know about me, you can clone this repository and take a look.
+Rich me for doubts or just keep in contact :)
