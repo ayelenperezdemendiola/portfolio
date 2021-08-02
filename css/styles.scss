@@ -287,6 +287,12 @@ a {
             flex-wrap: wrap;
             gap: 1em;
         }
+        .title--3 {
+            width: 40%;
+            @media screen and (max-width: 750px) {
+                width: 100%;
+            }
+        }
         .card__content {
             width: 56%;
             @media screen and (max-width: 750px) {
@@ -347,7 +353,6 @@ a {
 
 .title--3 {
     font-size: 2.8em;
-    width: 40%;
     line-height: 1.4em;
     @media screen and (max-width: 750px) {
         width: 100%;
