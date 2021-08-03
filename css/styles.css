@@ -301,6 +301,11 @@ a {
     letter-spacing: normal;
   }
 }
+@media screen and (min-width: 1800px) {
+  .main__nav__container .nav__list__item--link {
+    font-size: 16em;
+  }
+}
 
 .main__section {
   height: 100%;
@@ -494,6 +499,7 @@ a {
   position: relative;
   margin-right: 0.5em;
   padding-right: 0.5em;
+  font-weight: 600;
 }
 
 .education--date::after {

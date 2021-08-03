@@ -238,6 +238,9 @@ a {
                 font-size: 4em;
                 letter-spacing: normal;
             }
+            @media screen and (min-width: 1800px) {
+                font-size: 16em;
+            }
         }
     }
 }
@@ -391,6 +394,7 @@ a {
     position: relative;
     margin-right: .5em;
     padding-right: .5em;
+    font-weight: 600;
 }
 
 .education--date::after {
