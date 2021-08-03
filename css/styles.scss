@@ -451,9 +451,6 @@ a {
         justify-content: center;
         align-items: center;
         gap: .5em;
-        @media screen and (max-width: 750px) {
-            flex-direction: column;
-        }
         &__item--link {
             font-weight: 300;
             color: #f2efe8;
