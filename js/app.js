@@ -1,4 +1,5 @@
 'use strict';
+
 const body = document.querySelector('.body');
 const pointer = document.getElementById('mouse-circle');
 const navContainer = body.querySelector('.main__nav');
@@ -43,7 +44,6 @@ if(body.classList.contains('body--home')){
                 navItem[i].classList.remove('active');
             })
             navItem[i].classList.add('active');
-            console.log(window.innerWidth);
             if(window.innerWidth > 750){
                 if( i === 0) {
                     navList.style.transform = 'translateX(52vw)';

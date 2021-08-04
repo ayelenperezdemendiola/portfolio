@@ -1,3 +1,6 @@
+@import 'core/variables';
+@import 'core/mixins';
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -17,7 +20,7 @@ a {
 }
 
 [class*="__title"]{
-    color: #f2efe8;
+    color: $mainTextColor;
     text-transform: uppercase;
 }
 
@@ -29,31 +32,31 @@ a {
     color: transparent;
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: #f2efe8;
+    -webkit-text-stroke-color: $mainTextColor;
     transition: all .5s ease-in-out;
 }
 
 .title--1 {
-    color: #f2efe8;
-    font-size: 4em;
+    color: $mainTextColor;
+    font-size: $fontSizeTitle1;
     font-weight: 400;
     text-transform: uppercase;
     @media screen and (max-width: 750px){
-        font-size: 2em;
+        font-size: $fontSizeTitle1--mobile;
     }
 }
 
 .title--3 {
-    font-size: 2.2em;
+    font-size: $fontSizeTitle3--card;
     font-weight: 400;
     @media screen and (max-width: 750px) {
-        font-size: 1.8em;
+        font-size: $fontSizeTitle3--card--mobile;
         line-height: 1.4em;
     }
 }
 
 .paragraph {
-    color: #f2efe8;
+    color: $mainTextColor;
     font-weight: 300;
     line-height: 1.8em;
 }
@@ -66,14 +69,14 @@ a {
     .mouse-follow--circle {
         width: 40px;
         height: 40px;
-        background-color: #000000;
+        background-color: $fullDarkColor;
         border: transparent solid 3px;
         border-radius: 50%;
         position: fixed;
         pointer-events: none;
         z-index: 2;
         &.pointerHover{
-            border: #000000 solid 3px;
+            border: $fullDarkColor solid 3px;
             background-color: transparent;
             transform: scale(1.4);
             transition: border .5s ease-in-out,
@@ -84,25 +87,23 @@ a {
 }
 
 .body {
-    background-color: #2c2a2a;
+    background-color: $semiDarkColor;
     min-height: 100vh;
     font-family: 'Roboto', sans-serif;
-    font-size: 1em;
+    font-size: $fontSizeBody;
     cursor: none;
 }
 
 .header {
     height: 20vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex(flex, center, center);
     text-align: center;
     &__title {
         font-weight: 300;
         margin-bottom: .6em;
     }
     &__subtitle {
-        color: #8f8c89;
+        color: $subTitleColor;
         font-weight: 300;
     }
 }
@@ -138,7 +139,7 @@ a {
             position: relative;
             height: 100%;
             .nav__list__item--link {
-                font-size: 3em;
+                font-size: $fontSizeNav;
             }
             .nav__trigger {
                 display: block;
@@ -152,7 +153,7 @@ a {
             top: 5em;
             left: 0;
             right: 0;
-            background-color:#2c2a2a;
+            background-color:$semiDarkColor;
             z-index: 1;
             transform: translateX(100vw);
             transition: all .5s ease-in-out;
@@ -162,24 +163,21 @@ a {
         }
     }
     .nav__list {
-        display: flex;
-        justify-content: space-between;
+        @include flex(flex, space-between, center);
         @media screen and (max-width: 750px) {
             flex-direction: column;
             gap: 1em;
         }
     }
     .nav__list__item--link {
-        color: #f2efe8;
+        color: $mainTextColor;
         text-transform: uppercase;
     }
 }
 
 .main {
     min-height: 60vh;
-    display: flex; 
-    justify-content: center;
-    align-items: center;
+    @include flex(flex, center, center);
     @media screen and(max-width: 750px){
         min-height: 80vh;
     }
@@ -192,9 +190,7 @@ a {
 .main__nav {
     height: 100%;
     &__list {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        @include flex(flex, center, center);
         height: 100%;
         gap: 1em;
         @media screen and (max-width: 750px) {
@@ -211,9 +207,7 @@ a {
     }
     &__container{
         height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        @include flex(flex, center, center);
         overflow: hidden;
         height: 60vh;
         .nav__list__item {
@@ -228,18 +222,18 @@ a {
             }
         }
         .nav__list__item--link {
-            color: #f2efe8;
+            color: $mainTextColor;
             text-transform: uppercase;
-            font-size: 9em;
+            font-size: $fontSizeNavLink;
             font-weight: 600;
             width: 100%;
             display: inline-block;
             @media screen and (max-width: 750px) {
-                font-size: 4em;
+                font-size: $fontSizeNavLink--mobile;
                 letter-spacing: normal;
             }
             @media screen and (min-width: 1800px) {
-                font-size: 16em;
+                font-size: $fontSizeNavLink--desktop;
             }
         }
     }
@@ -276,8 +270,7 @@ a {
 }
 
 .work .section__content {
-    display: flex;
-    justify-content: space-between;
+    @include flex(flex, space-between, center);
     gap: 1em;
     flex-wrap: wrap;
     @media screen and (max-width: 750px) {
@@ -329,7 +322,7 @@ a {
             padding: 1em 0;
         }
         .card__header {
-            color: #8f8c89;
+            color: $subTitleColor;
             font-weight: 300;
             text-transform: uppercase;
             padding-bottom: .5em;
@@ -349,25 +342,24 @@ a {
         .list__item {
             font-weight: 300;
             line-height: 1.8em;
-            color: #f2efe8;
+            color: $mainTextColor;
         }
     }
 }
 
 .title--3 {
-    font-size: 2.8em;
+    font-size: $fontSizeTitle3;
     line-height: 1.4em;
     @media screen and (max-width: 750px) {
         width: 100%;
-        font-size: 1.8em;
+        font-size: $fontSizeTitle3--mobile;
     }
 }
 
 .body--contact {
 
     .list {
-        display: flex;
-        justify-content: space-between;
+        @include flex(flex, space-between, center);
         @media screen and (max-width: 750px) {
             flex-direction: column;
         }
@@ -376,9 +368,8 @@ a {
     .list__item > * {
         font-weight: 300;
         line-height: 1.8em;
-        color: #f2efe8;
-        display: flex;
-        align-items: center;
+        color: $mainTextColor;
+        @include flex(flex, space-between, center);
         gap: .5em;
     }
 
@@ -387,6 +378,12 @@ a {
     .linkedin {
         width: 1.2em;
         height: 1.2em;
+    }
+
+    @media screen and (max-width: 750px) {
+        .section__content {
+            padding: 0 .5em;
+        }
     }
 }
 
@@ -404,7 +401,7 @@ a {
 }
 
 .education__list--item {
-    border: solid 1px #f2efe8;
+    border: solid 1px $mainTextColor;
     padding: 0.5em 1em;
     width: 49%;
     display: flex;
@@ -453,7 +450,7 @@ a {
         gap: .5em;
         &__item--link {
             font-weight: 300;
-            color: #f2efe8;
+            color: $mainTextColor;
         }
     }
 }
