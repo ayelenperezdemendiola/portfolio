@@ -228,6 +228,7 @@ a {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
+  overflow: hidden;
 }
 
 .main__nav {
