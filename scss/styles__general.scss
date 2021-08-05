@@ -1,0 +1,446 @@
+@import 'core/variables';
+@import 'core/mixins';
+@import 'reset';
+@
+
+[class*="__title"]{
+    color: $mainTextColor;
+    text-transform: uppercase;
+}
+
+[class*="__subtitle"]{
+    text-transform: uppercase;
+}
+
+[class*="--transparent"] {
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: $mainTextColor;
+    transition: all .5s ease-in-out;
+}
+
+.title--1 {
+    color: $mainTextColor;
+    font-size: $fontSizeTitle1;
+    font-weight: 400;
+    text-transform: uppercase;
+    @include mobile(){
+        font-size: $fontSizeTitle1--mobile;
+    }
+}
+
+.title--3 {
+    font-size: $fontSizeTitle3--card;
+    font-weight: 400;
+    @include mobile(){
+        font-size: $fontSizeTitle3--card--mobile;
+        line-height: 1.4em;
+    }
+}
+
+.paragraph {
+    color: $mainTextColor;
+    font-weight: 300;
+    line-height: 1.8em;
+}
+
+.paragraph + .paragraph {
+    padding-top: 1em;
+}
+
+@media screen and (min-width: 480px) {
+    .mouse-follow--circle {
+        width: 40px;
+        height: 40px;
+        background-color: $fullDarkColor;
+        border: transparent solid 3px;
+        border-radius: 50%;
+        position: fixed;
+        pointer-events: none;
+        z-index: 2;
+        &.pointerHover{
+            border: $fullDarkColor solid 3px;
+            background-color: transparent;
+            transform: scale(1.4);
+            transition: border .5s ease-in-out,
+                        transform .5s ease-in-out,
+                        background-color .3s ease-in;
+        }
+    }
+}
+
+.body {
+    background-color: $semiDarkColor;
+    min-height: 100vh;
+    font-family: 'Roboto', sans-serif;
+    font-size: $fontSizeBody;
+    cursor: none;
+}
+
+.header {
+    height: 20vh;
+    @include flex(flex, center, center);
+    text-align: center;
+    &__title {
+        font-weight: 300;
+        margin-bottom: .6em;
+    }
+    &__subtitle {
+        color: $subTitleColor;
+        font-weight: 300;
+    }
+}
+
+.body:not(.body.body--home) {
+    .header {
+        height: 20vh;
+        @include mobile(){
+            height: 10vh;
+        }
+    }
+    .header__wrapper {
+        width: 100%;
+        max-width: 64em;
+        padding: 0 5em;
+        .nav__trigger {
+            height: 2.5em;
+            width: 2.5em;
+            position: absolute;
+            right: 1em;
+            top: 1em;
+            background-image: url('../assets/menu--icon-open.svg');
+            background-repeat: no-repeat;
+            background-size: contain;
+            transition: all .5s ease-in-out;
+            display: none;
+            &.open {
+                background-image: url('../assets/menu--icon-close.svg');
+            }
+        }
+        @include mobile(){
+            padding: 0 1em;
+            position: relative;
+            height: 100%;
+            .nav__list__item--link {
+                font-size: $fontSizeNav;
+            }
+            .nav__trigger {
+                display: block;
+            }
+        }
+    }
+    .header__nav {
+        @include mobile(){
+            position: fixed;
+            height: 100vh;
+            top: 5em;
+            left: 0;
+            right: 0;
+            background-color:$semiDarkColor;
+            z-index: 1;
+            transform: translateX(100vw);
+            transition: all .5s ease-in-out;
+            &.open {
+                transform: translateX(0);
+            }
+        }
+    }
+    .nav__list {
+        @include flex(flex, space-between, center);
+        @include mobile(){
+            flex-direction: column;
+            gap: 1em;    
+        }
+    }
+    .nav__list__item--link {
+        color: $mainTextColor;
+        text-transform: uppercase;
+    }
+}
+
+.main {
+    min-height: 60vh;
+    @include flex(flex, center, center);
+    @include mobile() {
+        min-height: 80vh;
+    }
+    &__wrapper {
+        height: 100%;
+        flex-grow: 1;
+        overflow: hidden;
+    }   
+}
+
+.main__nav {
+    height: 100%;
+    &__list {
+        @include flex(flex, center, center);
+        height: 100%;
+        gap: 1em;
+        @include mobile(){
+            flex-direction: column;
+            height: 100%;
+            justify-content: space-around;
+        }
+        &:hover {
+            .nav__list__item:not(.nav__list__item.active) {
+                opacity: 0.1;
+                transition: all .5s ease-in-out;
+            }
+        }
+    }
+    &__container{
+        height: 100%;
+        @include flex(flex, center, center);
+        overflow: hidden;
+        height: 60vh;
+        .nav__list__item {
+            min-width: 52vw;
+            text-align: center;
+            letter-spacing: -0.4em;
+            transition: all .5s ease-in-out;
+            &:hover{
+                letter-spacing: 0em;
+                transform: scale(1.2);
+                transition: all .5s ease-in-out;
+            }
+        }
+        .nav__list__item--link {
+            color: $mainTextColor;
+            text-transform: uppercase;
+            font-size: $fontSizeNavLink;
+            font-weight: 600;
+            width: 100%;
+            display: inline-block;
+            @include mobile() {
+                font-size: $fontSizeNavLink--mobile;
+                letter-spacing: normal;
+            }
+            @media screen and (min-width: 1800px) {
+                font-size: $fontSizeNavLink--desktop;
+            }
+        }
+    }
+}
+
+.main__section {
+    height: 100%;
+    padding: 1em 5em;
+    max-width: 64em;
+    margin: 0 auto;
+    @include mobile() {
+        padding: 1em; 
+    }
+}
+
+.body--about .main__section {
+    .section__title {
+        animation: uploadCard 1s ease backwards;
+        animation-delay: .1s;
+    }
+    .section__paragraph {
+        animation: uploadCard 1s ease backwards;
+        animation-delay: .4s;
+    }
+
+}
+
+.section__content + .section__content {
+    margin-top: 2em;
+}
+
+.section__title + .section__paragraph {
+    padding-top: 1.2em;
+}
+
+.work .section__content {
+    @include flex(flex, space-between, flex-start);
+    gap: 1em;
+    flex-wrap: wrap;
+    @include mobile(){
+        flex-direction: column;
+    }
+    &__card:first-child {
+        width: 100%;
+        .card__container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1em;
+        }
+        .title--3 {
+            width: 40%;
+            @include mobile(){
+                width: 100%;
+            }
+        }
+        .card__content {
+            width: 56%;
+            @include mobile(){
+                width: 100%;
+            }
+        }
+    }
+    &__card {
+        width: 46%;
+        padding: .5em;
+        animation: uploadCard 1s ease backwards;
+        @include mobile(){
+            width: 100%;
+        }
+        &:nth-child(2){
+            animation-delay: .1s;
+        }
+        &:nth-child(3){
+            animation-delay: .2s;
+        }
+        &:nth-child(4){
+            animation-delay: .3s;
+        }
+        &:nth-child(5){
+            animation-delay: .4s;
+        }
+        &:nth-child(6){
+            animation-delay: .5s;
+        }
+        .card__content {
+            padding: 1em 0;
+        }
+        .card__header {
+            color: $subTitleColor;
+            font-weight: 300;
+            text-transform: uppercase;
+            padding-bottom: .5em;
+            border-bottom: solid 1px;
+            margin-bottom: 1em;
+        }
+        .title--3--transparent {
+            display: block;
+        }
+        .list {
+            flex-direction: column;
+            list-style: inside;
+            list-style-type: circle;
+            align-items: flex-start;
+            padding: 1em 0;
+        }
+        .list__item {
+            font-weight: 300;
+            line-height: 1.8em;
+            color: $mainTextColor;
+        }
+    }
+}
+
+.title--3 {
+    font-size: $fontSizeTitle3;
+    line-height: 1.4em;
+    @include mobile(){
+        width: 100%;
+        font-size: $fontSizeTitle3--mobile;
+    }
+}
+
+.body--contact {
+
+    .list {
+        @include flex(flex, space-between, center);
+        @include mobile(){
+            flex-direction: column;
+        }
+    }
+    
+    .list__item > * {
+        font-weight: 300;
+        line-height: 1.8em;
+        color: $mainTextColor;
+        @include flex(flex, space-between, center);
+        gap: .5em;
+    }
+
+    .envelope,
+    .mobile,
+    .linkedin {
+        width: 1.2em;
+        height: 1.2em;
+    }
+
+    @include mobile(){
+        .section__content {
+            padding: 0 .5em;
+        }
+    }
+
+}
+
+.education {
+
+    &--date {
+        position: relative;
+        margin-right: .5em;
+        padding-right: .5em;
+        font-weight: 600;
+    }
+
+    &--date::after {
+        content: '|';
+        position: absolute;
+        right: 0;
+    }
+
+    &__list--item {
+        border: solid 1px $mainTextColor;
+        padding: 0.5em 1em;
+        width: 49%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        @include mobile(){
+            width: 100%;
+        }
+    }
+    
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: .5em;
+    }
+
+}
+
+@keyframes uploadCard {
+    from {
+        opacity: 0;
+        transform: translateY(40%) translateZ(0);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) translateZ(0);
+    } 
+}
+
+.footer {
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase; 
+    @include mobile(){
+        height: 10vh;
+    }
+    &__wrapper {
+        width: 100%;
+    }
+    &__list {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: .5em;
+        &__item--link {
+            font-weight: 300;
+            color: $mainTextColor;
+        }
+    }
+}

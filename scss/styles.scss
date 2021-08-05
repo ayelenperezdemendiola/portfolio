@@ -1,23 +1,6 @@
+@import 'reset';
 @import 'core/variables';
 @import 'core/mixins';
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-size: unset;
-}
-
-ul,
-ol {
-    list-style: none;
-}
-
-a {
-    text-decoration: none;
-    cursor: none;
-    color: inherit;
-}
 
 [class*="__title"]{
     color: $mainTextColor;
@@ -259,7 +242,6 @@ a {
         animation: uploadCard 1s ease backwards;
         animation-delay: .4s;
     }
-
 }
 
 .section__content + .section__content {
@@ -271,7 +253,7 @@ a {
 }
 
 .work .section__content {
-    @include flex(flex, space-between, center);
+    @include flex(flex, space-between, flex-start);
     gap: 1em;
     flex-wrap: wrap;
     @include mobile(){
@@ -389,49 +371,42 @@ a {
 
 }
 
-.education--date {
-    position: relative;
-    margin-right: .5em;
-    padding-right: .5em;
-    font-weight: 600;
-}
+.education {
 
-.education--date::after {
-    content: '|';
-    position: absolute;
-    right: 0;
-}
+    &--date {
+        position: relative;
+        margin-right: .5em;
+        padding-right: .5em;
+        font-weight: 600;
+    }
 
-.education__list--item {
-    border: solid 1px $mainTextColor;
-    padding: 0.5em 1em;
-    width: 49%;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    @include mobile(){
-        width: 100%;
+    &--date::after {
+        content: '|';
+        position: absolute;
+        right: 0;
+    }
+
+    &__list--item {
+        border: solid 1px $mainTextColor;
+        padding: 0.5em 1em;
+        width: 49%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        @include mobile(){
+            width: 100%;
+        }
+    }
+    
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: .5em;
     }
 
 }
 
-.education__list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: .5em;
-}
-
-@keyframes uploadCard {
-    from {
-        opacity: 0;
-        transform: translateY(40%) translateZ(0);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0) translateZ(0);
-    } 
-}
 
 .footer {
     height: 20vh;
@@ -456,4 +431,15 @@ a {
             color: $mainTextColor;
         }
     }
+}
+
+@keyframes uploadCard {
+    from {
+        opacity: 0;
+        transform: translateY(40%) translateZ(0);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) translateZ(0);
+    } 
 }
