@@ -139,7 +139,7 @@ a {
   position: absolute;
   right: 1em;
   top: 1em;
-  background-image: url("./assets/menu--icon-open.svg");
+  background-image: url("../assets/menu--icon-open.svg");
   background-repeat: no-repeat;
   background-size: contain;
   -webkit-transition: all 0.5s ease-in-out;
@@ -147,7 +147,7 @@ a {
   display: none;
 }
 .body:not(.body.body--home) .header__wrapper .nav__trigger.open {
-  background-image: url("./assets/menu--icon-close.svg");
+  background-image: url("../assets/menu--icon-close.svg");
 }
 @media screen and (max-width: 750px) {
   .body:not(.body.body--home) .header__wrapper {
