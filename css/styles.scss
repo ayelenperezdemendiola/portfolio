@@ -41,7 +41,7 @@ a {
     font-size: $fontSizeTitle1;
     font-weight: 400;
     text-transform: uppercase;
-    @media screen and (max-width: 750px){
+    @include mobile(){
         font-size: $fontSizeTitle1--mobile;
     }
 }
@@ -49,7 +49,7 @@ a {
 .title--3 {
     font-size: $fontSizeTitle3--card;
     font-weight: 400;
-    @media screen and (max-width: 750px) {
+    @include mobile(){
         font-size: $fontSizeTitle3--card--mobile;
         line-height: 1.4em;
     }
@@ -111,7 +111,7 @@ a {
 .body:not(.body.body--home) {
     .header {
         height: 20vh;
-        @media screen and (max-width: 750px) {
+        @include mobile(){
             height: 10vh;
         }
     }
@@ -134,7 +134,7 @@ a {
                 background-image: url('../assets/menu--icon-close.svg');
             }
         }
-        @media screen and (max-width: 750px) {
+        @include mobile(){
             padding: 0 1em;
             position: relative;
             height: 100%;
@@ -147,7 +147,7 @@ a {
         }
     }
     .header__nav {
-        @media screen and (max-width: 750px) {
+        @include mobile(){
             position: fixed;
             height: 100vh;
             top: 5em;
@@ -164,9 +164,9 @@ a {
     }
     .nav__list {
         @include flex(flex, space-between, center);
-        @media screen and (max-width: 750px) {
+        @include mobile(){
             flex-direction: column;
-            gap: 1em;
+            gap: 1em;    
         }
     }
     .nav__list__item--link {
@@ -178,7 +178,7 @@ a {
 .main {
     min-height: 60vh;
     @include flex(flex, center, center);
-    @media screen and(max-width: 750px){
+    @include mobile() {
         min-height: 80vh;
     }
     &__wrapper {
@@ -194,7 +194,7 @@ a {
         @include flex(flex, center, center);
         height: 100%;
         gap: 1em;
-        @media screen and (max-width: 750px) {
+        @include mobile(){
             flex-direction: column;
             height: 100%;
             justify-content: space-around;
@@ -229,7 +229,7 @@ a {
             font-weight: 600;
             width: 100%;
             display: inline-block;
-            @media screen and (max-width: 750px) {
+            @include mobile() {
                 font-size: $fontSizeNavLink--mobile;
                 letter-spacing: normal;
             }
@@ -245,7 +245,7 @@ a {
     padding: 1em 5em;
     max-width: 64em;
     margin: 0 auto;
-    @media screen and (max-width: 750px) {
+    @include mobile() {
         padding: 1em; 
     }
 }
@@ -274,7 +274,7 @@ a {
     @include flex(flex, space-between, center);
     gap: 1em;
     flex-wrap: wrap;
-    @media screen and (max-width: 750px) {
+    @include mobile(){
         flex-direction: column;
     }
     &__card:first-child {
@@ -286,13 +286,13 @@ a {
         }
         .title--3 {
             width: 40%;
-            @media screen and (max-width: 750px) {
+            @include mobile(){
                 width: 100%;
             }
         }
         .card__content {
             width: 56%;
-            @media screen and (max-width: 750px) {
+            @include mobile(){
                 width: 100%;
             }
         }
@@ -301,7 +301,7 @@ a {
         width: 46%;
         padding: .5em;
         animation: uploadCard 1s ease backwards;
-        @media screen and (max-width: 750px) {
+        @include mobile(){
             width: 100%;
         }
         &:nth-child(2){
@@ -351,7 +351,7 @@ a {
 .title--3 {
     font-size: $fontSizeTitle3;
     line-height: 1.4em;
-    @media screen and (max-width: 750px) {
+    @include mobile(){
         width: 100%;
         font-size: $fontSizeTitle3--mobile;
     }
@@ -361,7 +361,7 @@ a {
 
     .list {
         @include flex(flex, space-between, center);
-        @media screen and (max-width: 750px) {
+        @include mobile(){
             flex-direction: column;
         }
     }
@@ -381,11 +381,12 @@ a {
         height: 1.2em;
     }
 
-    @media screen and (max-width: 750px) {
+    @include mobile(){
         .section__content {
             padding: 0 .5em;
         }
     }
+
 }
 
 .education--date {
@@ -408,9 +409,10 @@ a {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    @media screen and (max-width: 750px) {
+    @include mobile(){
         width: 100%;
     }
+
 }
 
 .education__list {
@@ -438,7 +440,7 @@ a {
     align-items: center;
     text-align: center;
     text-transform: uppercase; 
-    @media screen and (max-width: 750px){
+    @include mobile(){
         height: 10vh;
     }
     &__wrapper {
